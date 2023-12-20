@@ -7,6 +7,6 @@
 //functions for imageOption
 
 int imageOption::openImage() {
-
+std::cout<<"hello world \n";
     return 0;
 }

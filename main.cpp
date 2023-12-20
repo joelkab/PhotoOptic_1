@@ -8,7 +8,6 @@ using namespace cv;
 
 int main(int argc, char** argv)
 {
-
     imageOption imgOp;
 
     imgOp.openImage();
@@ -17,6 +16,16 @@ int main(int argc, char** argv)
         printf("usage: DisplayImage.out <Image_Path>\n");
         return -1;
     }
+    std::cout<< "\n################################- Welcome to PhotoOptic - ################################\n";
+    std::cout<<"                            I see your trying to edit an image, is this the right image: "<<argv[1]<< ":?. Y-yes N-no";
+    std::string input;
+    std::cin>>input;
+
+    if (input == "N"){
+        return -1;
+    }
+
+
     Mat image;
     image = imread(argv[1], 1);
     if (!image.data) {
@@ -26,6 +35,13 @@ int main(int argc, char** argv)
 
     namedWindow("Display Image", WINDOW_AUTOSIZE);
     imshow("Display Image", image);
+    waitKey(0);
+
+    Mat imageContrastHigh2;
+    image.convertTo(imageContrastHigh2, -1, 2, 0); //increase the contrast by 2
+    std::string windowNameContrastHigh2 = "Contrast Increased by 2";
+    namedWindow(windowNameContrastHigh2, WINDOW_NORMAL);
+    imshow(windowNameContrastHigh2, imageContrastHigh2);
     waitKey(0);
 
     int value = 0;

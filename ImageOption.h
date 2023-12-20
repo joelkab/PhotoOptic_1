@@ -3,6 +3,8 @@
 class imageOption{
 private:
 ///image name
+std::string ImageName;
+
 //etc
 
 public:
