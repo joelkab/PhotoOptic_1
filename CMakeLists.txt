@@ -9,6 +9,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 set(SOURCES
         main.cpp
         ImageOption.cpp
+        Tools.cpp
         )
 
 # Create the executable

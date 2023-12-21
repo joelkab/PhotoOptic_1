@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "ImageOption.h"
+#include "Tools.h"
 
 
 using namespace cv;
@@ -9,22 +10,16 @@ using namespace cv;
 int main(int argc, char** argv)
 {
     imageOption imgOp;
+    Tools tools;
 
-    imgOp.openImage();
+
+    tools.IntroDisplay();
+    tools.Menue();
 
     if (argc != 2) {
         printf("usage: DisplayImage.out <Image_Path>\n");
         return -1;
     }
-    std::cout<< "\n################################- Welcome to PhotoOptic - ################################\n";
-    std::cout<<"                            I see your trying to edit an image, is this the right image: "<<argv[1]<< ":?. Y-yes N-no";
-    std::string input;
-    std::cin>>input;
-
-    if (input == "N"){
-        return -1;
-    }
-
 
     Mat image;
     image = imread(argv[1], 1);
