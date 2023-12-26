@@ -32,12 +32,8 @@ int main(int argc, char** argv)
     imshow("Display Image", image);
     waitKey(0);
 
-    Mat imageContrastHigh2;
-    image.convertTo(imageContrastHigh2, -1, 2, 0); //increase the contrast by 2
-    std::string windowNameContrastHigh2 = "Contrast Increased by 2";
-    namedWindow(windowNameContrastHigh2, WINDOW_NORMAL);
-    imshow(windowNameContrastHigh2, imageContrastHigh2);
-    waitKey(0);
+    imgOp.BrtImage(image);
+
 
     int value = 0;
     std::cout<<"enter a value: ";
