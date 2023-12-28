@@ -22,6 +22,7 @@ int BrtImage(const cv::Mat& inputImage);
 
 
 
+
 //no need for a deconstructor sice were not acessing memory
 
 };

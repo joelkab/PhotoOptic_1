@@ -41,3 +41,28 @@ std::string Tools::Menue() {
     return input;
 
 }
+
+int Tools::BRTvalues() {
+    int value;
+    bool check = false;
+
+    std::cout << "I see you want to brighten your image!";
+    while (check == false) {
+
+        std::cout<<"please enter a value from 1-255: ";
+        std::cin>>value;
+        if(std::cin.fail()){
+            check = false;
+            continue;
+        }
+        if(value < 255 && value > 1){
+            check = true;
+            break;
+        }
+
+        std::cout<<"Try again \n";
+    }
+
+
+    return value;
+}

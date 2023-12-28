@@ -11,6 +11,7 @@ class Tools {
 public:
     void IntroDisplay();
     std::string Menue();
+    int BRTvalues();
 
 };
 

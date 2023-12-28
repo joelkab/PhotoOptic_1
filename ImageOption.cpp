@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "ImageOption.h"
+#include "Tools.h"
 
 using namespace cv;
 //functions for imageOption
@@ -19,17 +20,12 @@ int imageOption::openImage() {
 
 int imageOption::BrtImage(const cv::Mat& image) {
     Mat imageBrighness;
+    Tools tools;
 //create a function to display a welcome them and to collect the values.
-    std::cout<<"I see you want to brighten your image!";
-    std::cout<<"please enter ";
+    int brt = tools.BRTvalues();
 
-
-    //image.convertTo(imageBrighness, -1, 2, 0); //increase the contrast by 2
-
-    //create a variable that will take in a value to replace 50
-    //handle the input to not exceed 255 if it does set it to 255 nor less than 0
-    image.convertTo(imageBrighness, -1, 1, 50);
-    std::string windowNameContrastHigh = "Contrast Increased";
+    image.convertTo(imageBrighness, -1, 1, brt);
+    std::string windowNameContrastHigh = "Brightness Changed";
     namedWindow(windowNameContrastHigh, WINDOW_NORMAL);
     imshow(windowNameContrastHigh, imageBrighness);
     waitKey(0);
