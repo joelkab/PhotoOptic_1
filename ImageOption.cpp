@@ -25,10 +25,10 @@ int imageOption::BrtImage(const cv::Mat& image) {
     int brt = tools.BRTvalues();
 
     image.convertTo(imageBrighness, -1, 1, brt);
-    std::string windowNameContrastHigh = "Brightness Changed";
+    std::string windowNameContrastHigh = "Brightness Increased";
     namedWindow(windowNameContrastHigh, WINDOW_NORMAL);
     imshow(windowNameContrastHigh, imageBrighness);
-    waitKey(0);
+    waitKey(100);
 
     return 0;
 }
