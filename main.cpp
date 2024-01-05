@@ -32,21 +32,9 @@ int main(int argc, char** argv)
     imshow("Display Image", image);
     waitKey(100);
 
-    imgOp.BrtImage(image);
+    Mat newImage = imgOp.BrtImage(image);
+    tools.TryAgain(newImage);
 
-
-    int value = 0;
-    std::cout<<"enter a value: ";
-    std::cin>>value;
-    switch (value) {
-        case 1:
-            std::cout<<"window closed \n";
-            destroyWindow("Display Image"); //destroy the created window
-            break;
-        case 2:
-            std::cout<<"wrong ";
-            break;
-    }
 
     return 0;
 }

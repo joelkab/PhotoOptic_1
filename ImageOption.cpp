@@ -18,7 +18,17 @@ int imageOption::openImage() {
 //function to brighten a image
 // returns
 
-int imageOption::BrtImage(const cv::Mat& image) {
+
+//here's an example of how to change the contrast
+//     Mat imageContrastHigh2;
+//    image.convertTo(imageContrastHigh2, -1, 2, 0); //increase the contrast by 2
+
+
+
+//function to save an image
+//https://www.opencv-srf.com/2018/01/save-images-and-videos-to-file.html
+
+cv::Mat imageOption::BrtImage(cv::Mat &image) {
     Mat imageBrighness;
     Tools tools;
 //create a function to display a welcome them and to collect the values.
@@ -30,15 +40,5 @@ int imageOption::BrtImage(const cv::Mat& image) {
     imshow(windowNameContrastHigh, imageBrighness);
     waitKey(100);
 
-    return 0;
+    return imageBrighness; //returns the converted image
 }
-
-
-//here's an example of how to change the contrast
-//     Mat imageContrastHigh2;
-//    image.convertTo(imageContrastHigh2, -1, 2, 0); //increase the contrast by 2
-
-
-
-//function to save an image
-//https://www.opencv-srf.com/2018/01/save-images-and-videos-to-file.html

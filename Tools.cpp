@@ -4,6 +4,9 @@
 
 #include "Tools.h"
 #include "iostream"
+#include <cctype>
+#include <opencv2/opencv.hpp>
+
 // displays the header in the beginning
 void Tools::IntroDisplay() {
     std::cout<<std::endl;
@@ -65,4 +68,38 @@ int Tools::BRTvalues() {
 
 
     return value;
+}
+
+int Tools::TryAgain(const cv::Mat& image) {
+    std::cout << "Save change?\n please enter Y:yes or N:no :";
+
+    char value;
+    std::cin>>value;
+
+    if (toupper(value) == 'Y'){
+        std::cout<<"welcome to yes ";
+
+        bool isSuccess = imwrite("MyImage.jpeg", image); //write the image to a file as JPEG
+        //bool isSuccess = imwrite("D:/MyImage.png", image); //write the image to a file as PNG
+        if (isSuccess == false)
+        {
+            std::cout << "Failed to save the image" << std::endl;
+            std::cin.get(); //wait for a key press
+            return -1;
+        }
+
+        std::cout << "Image is succusfully saved to a file" << std::endl;
+
+    }else if (toupper(value) == 'N'){
+        std::cout<<"window closed \n";
+        cv::destroyWindow("Display Image"); //destroy the created window
+    }else{
+        std::cout << "please chose a valid response" << std::endl;
+    }
+
+
+
+
+
+    return 0;
 }

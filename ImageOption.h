@@ -15,7 +15,7 @@ public:
 //function to check if the image exist
 int openImage();
 //brightening
-int BrtImage(const cv::Mat& inputImage);
+cv::Mat BrtImage( cv::Mat& inputImage);
 //darkening
 //contrast
 //etc
