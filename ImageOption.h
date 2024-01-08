@@ -18,6 +18,7 @@ int openImage();
 cv::Mat BrtImage( cv::Mat& inputImage);
 //darkening
 //contrast
+cv::Mat ContrastImage( cv::Mat& inputImage);
 //etc
 
 

@@ -28,10 +28,10 @@ void Tools::IntroDisplay() {
                "                                                                                                   ";
 }
 //------------------------------------
-std::string Tools::Menue() {
+int Tools::Menue() {
 
 
-
+    int input;
     std::cout<<std::endl;
     std::cout << "1. Brightness ✨\n";
     std::cout << "2. Construct 🎨\n";
@@ -39,31 +39,29 @@ std::string Tools::Menue() {
     std::cout << "4. coming soon 🚪\n\n";
 
     std::cout << "Choose your option: ";
+
     std::cin>>input;
 
     return input;
 
 }
 
-int Tools::BRTvalues() {
+int Tools::Valid_values(std::string message) {
     int value;
-    bool check = false;
-
-    std::cout << "I see you want to brighten your image!";
-    while (check == false) {
+    std::cout << message;
+    while (true) {
 
         std::cout<<"please enter a value from 1-255: ";
         std::cin>>value;
         if(std::cin.fail()){
-            check = false;
-            continue;
+            std::cin.clear(); std::cin.ignore(INT_MAX,'\n');
         }
         if(value < 255 && value > 1){
-            check = true;
             break;
         }
 
         std::cout<<"Try again \n";
+
     }
 
 
@@ -96,10 +94,6 @@ int Tools::TryAgain(const cv::Mat& image) {
     }else{
         std::cout << "please chose a valid response" << std::endl;
     }
-
-
-
-
 
     return 0;
 }

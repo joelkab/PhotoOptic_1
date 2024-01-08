@@ -13,8 +13,6 @@ int main(int argc, char** argv)
     Tools tools;
 
 
-    tools.IntroDisplay();
-    tools.Menue();
 
     if (argc != 2) {
         printf("usage: DisplayImage.out <Image_Path>\n");
@@ -28,10 +26,13 @@ int main(int argc, char** argv)
         return -1;
     }
 
+    tools.IntroDisplay();
+    int option = tools.Menue();
+
     namedWindow("Display Image", WINDOW_AUTOSIZE);
     imshow("Display Image", image);
     waitKey(100);
-
+    
     Mat newImage = imgOp.BrtImage(image);
     tools.TryAgain(newImage);
 

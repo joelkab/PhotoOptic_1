@@ -12,8 +12,8 @@ class Tools {
     std::string input;
 public:
     void IntroDisplay();
-    std::string Menue();
-    int BRTvalues();
+    int Menue();
+    int Valid_values(std::string message);
     int TryAgain(const cv::Mat& image);
 
 
