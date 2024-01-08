@@ -69,7 +69,7 @@ int Tools::Valid_values(std::string message) {
 }
 
 int Tools::TryAgain(const cv::Mat& image) {
-    std::cout << "Save change?\n please enter Y:yes or N:no :";
+    std::cout << "Save change?\nplease enter Y:yes or N:no :";
 
     char value;
     std::cin>>value;

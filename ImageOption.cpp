@@ -36,12 +36,13 @@ cv::Mat imageOption::BrtImage(cv::Mat &image) {
 
 
 
-cv::Mat imageOption::ContrastImage(cv::Mat &inputImage) {
+cv::Mat imageOption::ContrastImage(cv::Mat &image) {
 
     //here's an example of how to change the contrast
 //     Mat imageContrastHigh2;
 //    image.convertTo(imageContrastHigh2, -1, 2, 0); //increase the contrast by 2
-    std::string message = " i see you want to add contrast to your image \n";
+    std::string message = " i see you want to add contrast to your image \n"
+                          "**recommended change 1-15**\n";
     Mat imageContrast;
     Tools tools;
 

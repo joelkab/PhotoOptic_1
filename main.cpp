@@ -32,8 +32,20 @@ int main(int argc, char** argv)
     namedWindow("Display Image", WINDOW_AUTOSIZE);
     imshow("Display Image", image);
     waitKey(100);
-    
-    Mat newImage = imgOp.BrtImage(image);
+
+    Mat newImage;
+
+    switch (option) {
+        case 1:
+             newImage = imgOp.BrtImage(image);
+            break;
+        case 2:
+             newImage = imgOp.ContrastImage(image);
+            break;
+        default:
+            std::cout<<"wrong input";
+    }
+
     tools.TryAgain(newImage);
 
 
