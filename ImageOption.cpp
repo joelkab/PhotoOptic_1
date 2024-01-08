@@ -10,9 +10,23 @@
 using namespace cv;
 //functions for imageOption
 
-int imageOption::openImage() {
+cv::Mat imageOption::openImage() {
+    std::string filename;
+    std::cout<<"please enter a file name : ";
+    std::cin>>filename;
 
-    return 0;
+    // Read the image file
+    Mat image = imread(filename);
+
+    // Check for failure
+    if (image.empty())
+    {
+        std::cout << "Could not open or find the image" << std::endl;
+        std::cin.get(); //wait for any key press
+        exit(-1);
+    }
+
+    return image;
 }
 
 //function to brighten a image

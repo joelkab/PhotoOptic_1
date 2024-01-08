@@ -13,7 +13,7 @@ std::string ImageName;
 public:
 //default constructor to init the values
 //function to check if the image exist
-int openImage();
+cv::Mat openImage();
 //brightening
 cv::Mat BrtImage( cv::Mat& inputImage);
 //darkening

@@ -14,7 +14,11 @@ public:
     void IntroDisplay();
     int Menue();
     int Valid_values(std::string message);
-    int TryAgain(const cv::Mat& image);
+    void display_Menue_2();
+    int Options(const cv::Mat& image, cv::Mat& org_image);
+    bool TryAgain();
+
+
 
 
 };

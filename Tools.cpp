@@ -68,14 +68,15 @@ int Tools::Valid_values(std::string message) {
     return value;
 }
 
-int Tools::TryAgain(const cv::Mat& image) {
-    std::cout << "Save change?\nplease enter Y:yes or N:no :";
+int Tools::Options(const cv::Mat& image, cv::Mat& org_image) {
 
-    char value;
+    display_Menue_2();
+
+    int value;
     std::cin>>value;
 
-    if (toupper(value) == 'Y'){
-        std::cout<<"welcome to yes ";
+    if ( value== 2){
+        std::cout<<"Saving image.......\n";
 
         bool isSuccess = imwrite("MyImage.jpeg", image); //write the image to a file as JPEG
         //bool isSuccess = imwrite("D:/MyImage.png", image); //write the image to a file as PNG
@@ -88,12 +89,41 @@ int Tools::TryAgain(const cv::Mat& image) {
 
         std::cout << "Image is succusfully saved to a file" << std::endl;
 
-    }else if (toupper(value) == 'N'){
+    }else if (value == 3){
         std::cout<<"window closed \n";
         cv::destroyWindow("Display Image"); //destroy the created window
-    }else{
+    }else if(value == 1){
+        //discard change
+        std::cout<<"Image successfully discard \n";
+        image == org_image;
+    }
+    else{
         std::cout << "please chose a valid response" << std::endl;
     }
 
     return 0;
+}
+
+void Tools::display_Menue_2() {
+    std::cout<<"\nPlease select an option!\n"
+               "--1) Discard change--\n"
+               "--2) Save Image--\n"
+               "--3) Exit--\n"
+               "----: ";
+}
+
+bool Tools::TryAgain() {
+    std::cout<<"\nWould you like to edit another image? \n"
+               "----: ";
+    std::cout<<"--1) Yes\n"
+               "--2) No\n"
+               "----: ";
+    int value = 0;
+    std::cin>>value;
+
+    if(value == 1){
+        return true;
+    }
+
+    return false;
 }
