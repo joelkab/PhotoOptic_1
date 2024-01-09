@@ -29,7 +29,14 @@ int main(int argc, char** argv)
     tools.IntroDisplay();
     int option = tools.Menue();
 
+    int desiredWidth = 400; // Replace with your desired width
+    int desiredHeight = 300; // Replace with your desired height
+
+    // Resize the image
+    resize(image, image, Size(desiredWidth, desiredHeight));
+
     namedWindow("Display Image", WINDOW_AUTOSIZE);
+    moveWindow("Display Image", 300, 140);
     imshow("Display Image", image);
     waitKey(100);
 
@@ -37,6 +44,7 @@ int main(int argc, char** argv)
     bool tryagain = true;
 
     while (tryagain){
+
 
         switch (option) {
             case 1:
@@ -56,8 +64,8 @@ int main(int argc, char** argv)
         }
         Mat retryImage = imgOp.openImage();
         image = retryImage;
-
         option = tools.Menue();
+
     }
 
 

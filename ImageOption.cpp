@@ -12,7 +12,7 @@ using namespace cv;
 
 cv::Mat imageOption::openImage() {
     std::string filename;
-    std::cout<<"please enter a file name : ";
+    std::cout<<"Please enter a file name : ";
     std::cin>>filename;
 
     // Read the image file
@@ -32,7 +32,7 @@ cv::Mat imageOption::openImage() {
 //function to brighten a image
 // returns
 cv::Mat imageOption::BrtImage(cv::Mat &image) {
-    std::string message = " i see you want to brighten your image \n";
+    std::string message = "I see you want to brighten your image \n";
     Mat imageBrighness;
     Tools tools;
 //create a function to display a welcome them and to collect the values.
@@ -42,6 +42,7 @@ cv::Mat imageOption::BrtImage(cv::Mat &image) {
     image.convertTo(imageBrighness, -1, 1, brt);
     std::string windowNameContrastHigh = "Brightness Increased";
     namedWindow(windowNameContrastHigh, WINDOW_NORMAL);
+    moveWindow(windowNameContrastHigh, 700, 140);
     imshow(windowNameContrastHigh, imageBrighness);
     waitKey(100);
 
@@ -55,7 +56,7 @@ cv::Mat imageOption::ContrastImage(cv::Mat &image) {
     //here's an example of how to change the contrast
 //     Mat imageContrastHigh2;
 //    image.convertTo(imageContrastHigh2, -1, 2, 0); //increase the contrast by 2
-    std::string message = " i see you want to add contrast to your image \n"
+    std::string message = "I see you want to add contrast to your image \n"
                           "**recommended change 1-15**\n";
     Mat imageContrast;
     Tools tools;
@@ -65,6 +66,7 @@ cv::Mat imageOption::ContrastImage(cv::Mat &image) {
     image.convertTo(imageContrast, -1, value, 0);
     std::string windowNameContrastHigh = "Contrast Increased";
     namedWindow(windowNameContrastHigh, WINDOW_NORMAL);
+    moveWindow(windowNameContrastHigh, 700, 140);
     imshow(windowNameContrastHigh, imageContrast);
     waitKey(100);
 
